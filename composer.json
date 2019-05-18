@@ -1,6 +1,6 @@
 {
-    "name": "greenter/ubl-validator",
-    "description": "OASIS Universal Business Language Schema Validator UBL v2.0, UBL v2.1",
+    "name": "frankbv/ubl-validator",
+    "description": "OASIS Universal Business Language Schema Validator UBL v2.0, UBL v2.1, UBL v2.2",
     "keywords": ["ubl", "validator", "greenter", "invoice"],
     "license": "MIT",
     "authors": [
@@ -9,7 +9,7 @@
             "email": "giansalex@gmail.com"
         }
     ],
-    "homepage": "https://github.com/giansalex/ubl-validator",
+    "homepage": "https://github.com/frankbv/ubl-validator",
     "type": "library",
     "require": {
 	    "php": ">=5.5.9",

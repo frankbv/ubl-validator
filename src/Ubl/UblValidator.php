@@ -21,6 +21,10 @@ class UblValidator implements UblValidatorInterface
      */
     private $error;
     /**
+     * @var XmlError[]
+     */
+    private $errors = [];
+    /**
      * @var PathResolverInterface
      */
     public $pathResolver;
@@ -40,12 +44,24 @@ class UblValidator implements UblValidatorInterface
     }
 
     /**
+     * Get errors or warnings.
+     *
+     * @return XmlError[]
+     */
+    public function getValidationErrors()
+    {
+        return $this->errors;
+    }
+
+    /**
      * @param \DOMDocument|string $value Xml content or DomDocument
      *
      * @return bool
      */
     public function isValid($value)
     {
+        $this->errors = [];
+
         $this->checkDependencies();
         $doc = $this->getDocument($value);
         if (empty($doc->documentElement)) {

@@ -21,6 +21,13 @@ interface UblValidatorInterface
     public function getError();
 
     /**
+     * Get errors or warnings.
+     *
+     * @return XMLError[]
+     */
+    public function getValidationErrors();
+
+    /**
      * @param \DOMDocument|string $value Xml content or DomDocument
      *
      * @return bool
