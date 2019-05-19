@@ -23,7 +23,7 @@ class UblValidator implements UblValidatorInterface
     /**
      * @var XmlError[]
      */
-    private $errors = [];
+    private $validationErrors = [];
     /**
      * @var PathResolverInterface
      */
@@ -50,7 +50,7 @@ class UblValidator implements UblValidatorInterface
      */
     public function getValidationErrors()
     {
-        return $this->errors;
+        return $this->validationErrors;
     }
 
     /**
@@ -60,7 +60,7 @@ class UblValidator implements UblValidatorInterface
      */
     public function isValid($value)
     {
-        $this->errors = [];
+        $this->validationErrors = [];
 
         $this->checkDependencies();
         $doc = $this->getDocument($value);
@@ -77,6 +77,7 @@ class UblValidator implements UblValidatorInterface
 
         $valid = $this->schemaValidator->validate($doc, $path);
         $this->error = $valid ? '' : $this->getErrorMessage($this->schemaValidator->getErrors());
+        $this->validationErrors = $this->schemaValidator->getErrors();
 
         return $valid;
     }
