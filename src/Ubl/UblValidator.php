@@ -76,8 +76,9 @@ class UblValidator implements UblValidatorInterface
         }
 
         $valid = $this->schemaValidator->validate($doc, $path);
-        $this->error = $valid ? '' : $this->getErrorMessage($this->schemaValidator->getErrors());
+
         $this->validationErrors = $this->schemaValidator->getErrors();
+        $this->error = $valid ? '' : $this->getErrorMessage($this->validationErrors);
 
         return $valid;
     }
